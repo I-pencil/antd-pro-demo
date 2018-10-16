@@ -1,0 +1,21 @@
+.container {
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  min-width: 1000px;
+  background-color: #f8f8f8;
+}
+
+.header {
+  background: #fff
+}
+.content {
+  // 相当于该容器定位，解决弹出组件不随页面滚动问题
+  position: relative;
+  margin: 16px 16px 16px;
+  @diffHeight: 64px + 47px + 16px + 69px;
+  min-height: ~"calc(100vh - @{diffHeight})";
+  background: #fff;
+}
+
