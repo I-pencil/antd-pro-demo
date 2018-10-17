@@ -15,7 +15,7 @@ export default class DashBoard extends React.Component {
             头部
           </Header>
           <Content className={styles.content}>
-            <h1>hello React</h1>
+            {this.props.children}
           </Content>
           <Footer></Footer>
         </Layout>
