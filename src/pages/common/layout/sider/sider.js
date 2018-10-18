@@ -17,9 +17,9 @@ export default class SiderWrapper extends React.Component {
             theme="dark"
           >
             <SubMenu title="Dashboard">
-              <MenuItem><Link to='dashboard/analysis'>分析页</Link></MenuItem>
-              <MenuItem><Link to='dashboard/monitor'>监控页</Link></MenuItem>
-              <MenuItem><Link to='dashboard/workplace'>工作台</Link></MenuItem>
+              <MenuItem><Link to='/dashboard/analysis'>分析页</Link></MenuItem>
+              <MenuItem><Link to='/dashboard/monitor'>监控页</Link></MenuItem>
+              <MenuItem><Link to='/dashboard/workplace'>工作台</Link></MenuItem>
             </SubMenu>
             <SubMenu title="表单页">
               <MenuItem><Link to=''>基础表单</Link></MenuItem>
