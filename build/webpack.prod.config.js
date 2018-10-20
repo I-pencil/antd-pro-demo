@@ -5,11 +5,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const baseWebpackPlugin = require('./webpack.base.config');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 const prodWebpackPlugin = merge(baseWebpackPlugin, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: 'nosources-source-map',
   module: {
     rules: [
       {
@@ -84,7 +85,24 @@ const prodWebpackPlugin = merge(baseWebpackPlugin, {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+      uglifyOptions: {
+        output: {
+          beautify: true,
+          comments: false,
+        },
+        compress: {
+          warning: false,
+          drop_console: true,
+          collapse_vars: true,
+          reduce_vars: true,
+        },
+      }
+    }),
+    new OptimizeCssAssetsPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name]-[contenthash].css',

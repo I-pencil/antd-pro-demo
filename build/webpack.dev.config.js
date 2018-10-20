@@ -82,6 +82,7 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
   plugins: [
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 });
 

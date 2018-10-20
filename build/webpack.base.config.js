@@ -12,6 +12,16 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_nodules[\\/]/,
+          chunks: 'all',
+        }
+      }
+    }
+  },
   module: {
     rules: [
       {
@@ -31,8 +41,12 @@ module.exports = {
         sideEffects: false,
       },
       {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        test: /\.js$/,
+        include: path.resolve('src'),
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+        },
       }
     ]
   },
@@ -41,12 +55,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpackDemo',
       template: './index.html',
       filename: 'index.html',
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'manifest'
-    // }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
 }
