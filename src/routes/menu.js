@@ -1,4 +1,4 @@
-import Analysis from '../pages/dashboard/analysis';
+import Analysis from '../pages/dashboard/analysis/analysis';
 import Monitor from '../pages/dashboard/monitor';
 import Workplace from '../pages/dashboard/workplace';
 

@@ -9,7 +9,7 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
     hot: true,
-    inline: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
