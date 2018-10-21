@@ -14,9 +14,11 @@ const store = createStore(reducers);
 const App = () => {
   return (
     <LocaleProvider locale={zhCN}>
-      <BrowserRouter>
-        {routes}
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          {routes}
+        </BrowserRouter>
+      </Provider>
     </LocaleProvider>
   );
 }

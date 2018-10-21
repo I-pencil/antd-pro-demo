@@ -18,4 +18,4 @@ class Analysis extends React.Component {
   }
 }
 
-export default Analysis;
+export default connect()(Analysis);
