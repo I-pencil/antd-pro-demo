@@ -5,10 +5,11 @@ import menu from './menu';
 
 
 const render = (props) => {
+  const menuContent = menu.filter(item => item.rank !== 1);
   return (
     <Dashboard {...props}>
       <Switch>
-        {menu.map((item) => {
+        {menuContent.map((item) => {
           return (<Route key={item.id} path={item.path} component={item.component} />);
         })}
       </Switch>

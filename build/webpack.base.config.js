@@ -60,6 +60,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
+      favicon: path.resolve(__dirname, '../favicon.png'),
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
