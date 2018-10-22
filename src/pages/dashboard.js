@@ -9,7 +9,7 @@ export default class DashBoard extends React.Component {
   render() {
     return (
       <Layout className={styles.container}>
-        <Sider></Sider>
+        <Sider {...this.props}></Sider>
         <Layout className={styles['dashboard-main']}>
           <Header className={styles.header}>
             头部

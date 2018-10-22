@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
@@ -39,6 +40,7 @@
   "dependencies": {
     "antd": "^3.9.2",
     "lodash": "^4.17.10",
+    "path-to-regexp": "^2.4.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
