@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import isEqual from 'lodash/isEqual';
 import pathToRegexp from 'path-to-regexp';
 import styles from './sider.less';
@@ -10,10 +10,9 @@ const { Sider } = Layout;
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
-export default class SiderWrapper extends React.Component {
+export default class SiderContainer extends React.Component {
   state = {
     openKeys: [],
-    inlineCollapsed: false,
     selectedKeys: [],
   };
   componentDidMount() {
@@ -40,7 +39,7 @@ export default class SiderWrapper extends React.Component {
           );
         });
       }
-      return <SubMenu key={submenu.id} title={submenu.name}>
+      return <SubMenu key={submenu.id} title={<span>{submenu.icon && <Icon type={submenu.icon} />}<span>{submenu.name}</span></span>}>
         {getMenuItems()}
       </SubMenu>
     })
@@ -55,7 +54,7 @@ export default class SiderWrapper extends React.Component {
       }
     });
     if (selectedItem) {
-      const openKeys = menus.filter((item) => item.pid === selectedItem.pid).map(item => Object.prototype.toString(item.id));
+      const openKeys = menus.filter((item) => item.id === selectedItem.pid).map(item => String(item.id));
       this.setState({
         openKeys,
         selectedKeys: [`${selectedItem.id}`]
@@ -64,19 +63,20 @@ export default class SiderWrapper extends React.Component {
   }
 
   render() {
-    const { inlineCollapsed, openKeys, selectedKeys } = this.state;
+    const { openKeys, selectedKeys } = this.state;
+    const { collapsed } = this.props;
+    console.log('this.props.collapsed', collapsed);
+
     const menuProps = {
-      openKeys,
-      selectedKeys,
+      inlineCollapsed: collapsed,
     }
     return (
       <div>
         <Sider className={styles.container}>
-          <div className={styles.logo}><h1>Pro Demo</h1></div>
+          <div className={styles.logo} style={{ display: collapsed ? 'none': 'block' }}><h1>Pro Demo</h1></div>
           <Menu
             mode="inline"
             theme="dark"
-            inlineCollapsed={inlineCollapsed}
             {...menuProps}
           >
             {this.getMenus()}
