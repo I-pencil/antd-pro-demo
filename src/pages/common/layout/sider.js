@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import isEqual from 'lodash/isEqual';
 import pathToRegexp from 'path-to-regexp';
-import styles from './sider.less';
 import menus from '@/routes/menu';
+import styles from '../../dashboard.less';
+import logo from '../../../assets/logo.svg'
 
 const { Sider } = Layout;
 const MenuItem = Menu.Item;
@@ -25,26 +26,6 @@ export default class SiderContainer extends React.Component {
     }
   }
 
-  getMenus = () => {
-    const subMenus = menus.filter((item) => item.rank === 1);
-    return subMenus.map((submenu) => {
-      const menuItems = menus.filter((item) => item.pid === submenu.id);
-      const getMenuItems = () => {
-        return menuItems.map((item) => {
-          return (
-            <MenuItem key={item.id}>
-              {item.icon && <Icon type={item.icon} />}
-              <Link to={item.path}>{item.name}</Link>
-            </MenuItem>
-          );
-        });
-      }
-      return <SubMenu key={submenu.id} title={<span>{submenu.icon && <Icon type={submenu.icon} />}<span>{submenu.name}</span></span>}>
-        {getMenuItems()}
-      </SubMenu>
-    })
-  };
-
   getCurrentItem = (location) => {
     const menuItems = menus.filter((item) => item.rank === 2);
     let selectedItem;
@@ -62,24 +43,60 @@ export default class SiderContainer extends React.Component {
     }
   }
 
+  handSubClick = openKeys => {
+    this.setState({ openKeys });
+  }
+
   render() {
     const { openKeys, selectedKeys } = this.state;
     const { collapsed } = this.props;
-    console.log('this.props.collapsed', collapsed);
 
+    const openMenuProps = collapsed ? {} : {
+      openKeys,
+      onOpenChange: this.handSubClick,
+    }
     const menuProps = {
       inlineCollapsed: collapsed,
+      mode: collapsed ? 'vertical' : 'inline',
+      selectedKeys,
+      ...openMenuProps,
     }
+
+    const getMenus = () => {
+      const subMenus = menus.filter((item) => item.rank === 1);
+      return subMenus.map((submenu) => {
+        const menuItems = menus.filter((item) => item.pid === submenu.id);
+        const getMenuItems = () => {
+          return menuItems.map((item) => {
+            return (
+              <MenuItem key={item.id}>
+                {item.icon && <Icon type={item.icon} />}
+                <Link to={item.path}>{item.name}</Link>
+              </MenuItem>
+            );
+          });
+        }
+        const getSubTitle = () => {
+          return (<span>{submenu.icon && <Icon type={submenu.icon} />}<span>{submenu.name}</span></span>);
+        }
+        return <SubMenu key={submenu.id} title={getSubTitle()}>
+          {getMenuItems()}
+        </SubMenu>
+      })
+    };
+
     return (
       <div>
-        <Sider className={styles.container}>
-          <div className={styles.logo} style={{ display: collapsed ? 'none': 'block' }}><h1>Pro Demo</h1></div>
+        <Sider className={styles.container} breakpoint="xl" collapsed={collapsed} collapsible width="256">
+          <div className={styles.logoContainer}>
+            <img src={logo} alt="" className={styles.logo}/>
+            {!collapsed && <h1 className={styles.logoDesc}>Ant Design Pro</h1>}
+          </div>
           <Menu
-            mode="inline"
             theme="dark"
             {...menuProps}
           >
-            {this.getMenus()}
+            {getMenus()}
           </Menu>
         </Sider>
       </div>

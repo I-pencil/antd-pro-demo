@@ -2,13 +2,13 @@ import React from 'react';
 import { Layout } from 'antd';
 import styles from './dashboard.less';
 
-import Sider from './common/layout/sider/sider';
-import Header from './common/layout/header/header';
+import Sider from './common/layout/sider';
+import Header from './common/layout/header';
 const { Content, Footer } = Layout;
 
 export default class DashBoard extends React.Component {
   state = {
-    collapsed: true,
+    collapsed: false,
   }
   toggleCollapsed = () => {
     this.setState(pre => ({ collapsed: !pre.collapsed }));
