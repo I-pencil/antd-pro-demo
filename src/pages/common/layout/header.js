@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Button, Icon } from 'antd';
 
-import styles from './header.less';
+import styles from '../../dashboard.less';
 
 const { Header } = Layout;
 
@@ -11,9 +11,9 @@ const HeaderContainer = ({
 }) => {
   return (
     <Header className={styles.header}>
-      <Button onClick={handleClick} style={{ marginBottom: 16 }}>
-        <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
-      </Button>
+      <div onClick={handleClick} className={styles['header-btn']}>
+        <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} className={styles['header-icon']}/>
+      </div>
     </Header>
   );
 }

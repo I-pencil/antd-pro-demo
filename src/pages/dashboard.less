@@ -7,6 +7,42 @@
   background-color: #f8f8f8;
 }
 
+.logoContainer {
+  padding: 16px 0px;
+  background: #002140;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.logo {
+  margin-left: 24px;
+  height: 32px;
+}
+
+.logoDesc {
+  display: inline-block;
+  margin-left: 12px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  vertical-align: bottom;
+  color: #fff;
+}
+
+.header {
+  padding-left: 0;
+  background: #fff
+}
+
+.header-icon {
+  padding: 22px 24px;
+  font-size: 20px;
+}
+
+.header-icon:hover {
+  background: rgba(0, 0, 0, 0.025)
+}
+
 .content {
   // 相当于该容器定位，解决弹出组件不随页面滚动问题
   position: relative;
@@ -15,4 +51,3 @@
   min-height: ~"calc(100vh - @{diffHeight})";
   background: #fff;
 }
-
