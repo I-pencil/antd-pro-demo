@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/global.less';
 import routes from './routes';
 import reducers from './store/reducers';
+import './styles/global.less';
 
 const store = createStore(reducers);
 

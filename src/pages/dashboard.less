@@ -31,16 +31,55 @@
 
 .header {
   padding-left: 0;
-  background: #fff
+  background: #fff;
 }
 
-.header-icon {
+.header-menu {
+  line-height: 0px;
+}
+
+.icon-menu {
   padding: 22px 24px;
   font-size: 20px;
 }
 
-.header-icon:hover {
-  background: rgba(0, 0, 0, 0.025)
+.header-menu:hover, .header-bell:hover, .header-dropmenu:hover, .header-question:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.header-bell, .header-dropmenu, .header-question {
+  display: inline-block;
+  height: 64px;
+  padding: 0px 12px;
+}
+
+.icon-bell {
+  padding: 4px;
+}
+
+.header-dropmenu {
+  line-height: 0px;
+}
+
+.header-avator {
+  // width: 100%;
+  padding: 20px 8px 20px 0px;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+.header-user-name {
+  line-height: 64px;
+  font-size: 14px;
+  // vertical-align: bottom;
+
+}
+
+.drop-item {
+  width: 160px;
+}
+.drop-icon {
+  margin-right: 8px;
 }
 
 .content {
