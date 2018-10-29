@@ -8,8 +8,7 @@ import styles from '../../dashboard.less';
 import logo from '../../../assets/logo.svg';
 
 const { Sider } = Layout;
-const MenuItem = Menu.Item;
-const SubMenu = Menu.SubMenu;
+const { Item: MenuItem, SubMenu } = Menu;
 
 export default class SiderContainer extends React.Component {
   state = {

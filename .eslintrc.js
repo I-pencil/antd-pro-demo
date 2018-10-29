@@ -5,6 +5,13 @@ module.exports = {
         "browser": true
     },
     "extends": "airbnb",
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "build/webpack.base.config.js"
+            }
+        }
+    },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -16,6 +23,9 @@ module.exports = {
         "react"
     ],
     "rules": {
+        'import/prefer-default-export': 0,
+        'jsx-a11y/no-static-element-interactions': 0,
+        'jsx-a11y/click-events-have-key-events': 0,
         "import/no-extraneous-dependencies": [
             "off",
             { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }

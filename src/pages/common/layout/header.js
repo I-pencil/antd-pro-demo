@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   Layout, Tooltip, Icon, Badge, Row, Col, Dropdown, Menu,
 } from 'antd';
@@ -20,28 +20,28 @@ const HeaderContainer = ({
   const getDropdown = () => (
     <Menu>
       <MenuItem key="1" className={styles['drop-item']}>
-        <Link to="">
+        <Link to="/table/lsit">
           <Icon type="user" className={styles['drop-icon']} />
 个人中心
         </Link>
       </MenuItem>
       <MenuItem key="2" className={styles['drop-item']}>
-        <Link to="">
+        <Link to="/table/lsit">
           <Icon type="setting" className={styles['drop-icon']} />
 个人设置
         </Link>
       </MenuItem>
       <MenuItem key="3" className={styles['drop-item']}>
-        <Link to="">
+        <Link to="/table/lsit">
           <Icon type="close-circle" className={styles['drop-icon']} />
-触发报错
+            触发报错
         </Link>
       </MenuItem>
       <MenuDivider />
       <MenuItem key="4" className={styles['drop-item']}>
-        <Link to="">
+        <Link to="/table/lsit">
           <Icon type="logout" className={styles['drop-icon']} />
-退出登录
+            退出登录
         </Link>
       </MenuItem>
     </Menu>
@@ -78,8 +78,8 @@ const HeaderContainer = ({
 };
 
 HeaderContainer.propTypes = {
-  handleClick: propTypes.func.isRequired,
-  collapsed: propTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  collapsed: PropTypes.bool.isRequired,
 };
 
 export default HeaderContainer;
