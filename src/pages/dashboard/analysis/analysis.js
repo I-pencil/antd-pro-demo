@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Icon, Tooltip } from 'antd';
+import {
+  Row, Col, Icon, Tooltip,
+} from 'antd';
 
 class Analysis extends React.Component {
+  state = {};
+
   render() {
     return (
       <div>

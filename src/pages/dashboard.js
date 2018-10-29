@@ -1,29 +1,32 @@
 import React from 'react';
 import { Layout } from 'antd';
 import styles from './dashboard.less';
-
 import Sider from './common/layout/sider';
 import Header from './common/layout/header';
+
 const { Content, Footer } = Layout;
 
 export default class DashBoard extends React.Component {
   state = {
     collapsed: false,
   }
+
   toggleCollapsed = () => {
     this.setState(pre => ({ collapsed: !pre.collapsed }));
   };
+
   render() {
     const { collapsed } = this.state;
+    const { children } = this.props;
     return (
       <Layout className={styles.container}>
-        <Sider {...this.props} collapsed={collapsed}></Sider>
+        <Sider {...this.props} collapsed={collapsed} />
         <Layout className={styles['dashboard-main']}>
           <Header handleClick={this.toggleCollapsed} collapsed={collapsed} />
           <Content className={styles.content}>
-            {this.props.children}
+            {children}
           </Content>
-          <Footer></Footer>
+          <Footer />
         </Layout>
       </Layout>
     );

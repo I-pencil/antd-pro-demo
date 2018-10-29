@@ -1,8 +1,6 @@
-const totalAmount = (state, payload) => {
-  return {
-    ...state,
-    ...payload,
-  }
-}
+const totalAmount = (state, payload) => ({
+  ...state,
+  ...payload,
+});
 
 export default totalAmount;
