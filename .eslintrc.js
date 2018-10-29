@@ -1,10 +1,10 @@
 module.exports = {
     "root": true,
+    "parser": "babel-eslint",
     "env": {
-        "browser": true,
-        "es6": true
+        "browser": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -16,9 +16,13 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
+        "import/no-extraneous-dependencies": [
+            "off",
+            { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            { "extensions": [".js", ".jsx"] }
         ],
         "linebreak-style": [
             "error",

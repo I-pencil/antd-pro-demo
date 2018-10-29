@@ -9,14 +9,14 @@ const render = (props) => {
   return (
     <Dashboard {...props}>
       <Switch>
-        {menuContent.map((item) => {
-          return (<Route key={item.id} path={item.path} component={item.component} />);
-        })}
+        {menuContent.map(item => (
+          <Route key={item.id} path={item.path} component={item.component} />
+        ))}
         <Redirect from="/" exact to="/dashboard/analysis" />
       </Switch>
     </Dashboard>
   );
-}
+};
 
 const routes = (
   <Switch>
