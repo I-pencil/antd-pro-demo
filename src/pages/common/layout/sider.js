@@ -8,7 +8,8 @@ import styles from '../../dashboard.less';
 import logo from '../../../assets/logo.svg';
 
 const { Sider } = Layout;
-const { Item: MenuItem, SubMenu } = Menu;
+const MenuItem = Menu.Item;
+const SubMenu = Menu.SubMenu;
 
 export default class SiderContainer extends React.Component {
   state = {
@@ -41,11 +42,11 @@ export default class SiderContainer extends React.Component {
         selectedKeys: [`${selectedItem.id}`],
       });
     }
-  }
+  };
 
   handSubClick = (openKeys) => {
     this.setState({ openKeys });
-  }
+  };
 
   render() {
     const { openKeys, selectedKeys } = this.state;

@@ -1,7 +1,7 @@
 /*
 * Action Creator
 */
-import * as types from '../../../store/action-types';
+import * as types from '../../../../store/action-types';
 
 export const fetchTotalSold = () => ({
   type: types.ANALYSIS_TOTAL_SOLD,
