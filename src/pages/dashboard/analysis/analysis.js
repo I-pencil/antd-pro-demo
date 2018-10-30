@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  Row, Col, Icon, Tooltip,
+  Row, Col,
 } from 'antd';
 
 class Analysis extends React.Component {

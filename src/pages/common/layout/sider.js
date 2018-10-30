@@ -42,11 +42,11 @@ export default class SiderContainer extends React.Component {
         selectedKeys: [`${selectedItem.id}`],
       });
     }
-  }
+  };
 
   handSubClick = (openKeys) => {
     this.setState({ openKeys });
-  }
+  };
 
   render() {
     const { openKeys, selectedKeys } = this.state;
