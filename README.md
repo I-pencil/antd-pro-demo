@@ -2,10 +2,6 @@
 
 ## 拉取代码
 
-> 环境 Nodejs 8.9 以上版本
-
----
-
 ``` bash
 # 克隆项目到本地
 $ git clone https://github.com/sakuraLili/demo-vue-ssr.git

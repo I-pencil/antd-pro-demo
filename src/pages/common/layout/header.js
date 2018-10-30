@@ -22,13 +22,13 @@ const HeaderContainer = ({
       <MenuItem key="1" className={styles['drop-item']}>
         <Link to="/table/lsit">
           <Icon type="user" className={styles['drop-icon']} />
-个人中心
+            个人中心
         </Link>
       </MenuItem>
       <MenuItem key="2" className={styles['drop-item']}>
         <Link to="/table/lsit">
           <Icon type="setting" className={styles['drop-icon']} />
-个人设置
+            个人设置
         </Link>
       </MenuItem>
       <MenuItem key="3" className={styles['drop-item']}>
