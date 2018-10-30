@@ -4,7 +4,7 @@
 
 ``` bash
 # 克隆项目到本地
-$ git clone https://github.com/sakuraLili/demo-vue-ssr.git
+$ git clone https://github.com/sakuraLili/antd-pro-demo.git
 ```
 
 ## 启动
