@@ -18,9 +18,9 @@ module.exports = {
         vendors: {
           test: /[\\/]node_nodules[\\/]/,
           chunks: 'all',
-        }
-      }
-    }
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -47,14 +47,14 @@ module.exports = {
         options: {
           cacheDirectory: true,
         },
-      }
-    ]
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
-    }
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -64,4 +64,4 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
-}
+};

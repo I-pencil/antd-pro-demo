@@ -14,6 +14,12 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: [path.resolve(__dirname, 'src')],
+        loader: 'eslint-loader',
+        enforce: 'pre',
+      },
+      {
         test: /\.css$/,
         oneOf: [
           {
@@ -32,11 +38,11 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
                 loader: 'css-loader',
                 options: {
                   modules: true,
-                }
+                },
               },
               'postcss-loader',
             ],
-          }
+          },
         ],
       },
       {
@@ -52,8 +58,8 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
                 loader: 'less-loader',
                 options: {
                   javascriptEnabled: true,
-                }
-              }
+                },
+              },
             ],
           },
           {
@@ -64,15 +70,15 @@ const devWebpackPlugin = merge(baseWebpackPlugin, {
                 loader: 'css-loader',
                 options: {
                   modules: true,
-                }
+                },
               },
               'postcss-loader',
               {
                 loader: 'less-loader',
                 options: {
                   javascriptEnabled: true,
-                }
-              }
+                },
+              },
             ],
           },
         ],

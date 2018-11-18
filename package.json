@@ -1,15 +1,20 @@
 {
   "name": "antd-pro-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "基于React和Redux的后台管理平台",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open --config build/webpack.dev.config.js",
     "build": "webpack --config build/webpack.prod.config.js",
     "mock": "cross-env NODE_ENV=mock nodemon --watch mock ./mock/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "antd",
+    "redux",
+    "react-redux"
+  ],
+  "author": "Sakura lili_sakura@126.com",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -18,11 +23,17 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.1.5",
+    "babel-eslint": "8.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-import": "^1.8.0",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.6.2",

@@ -1,31 +1,53 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Layout } from 'antd';
+import { connect } from 'react-redux';
 import styles from './dashboard.less';
-
 import Sider from './common/layout/sider';
 import Header from './common/layout/header';
+import * as common from '@/store/actions/common';
+
 const { Content, Footer } = Layout;
 
-export default class DashBoard extends React.Component {
+class DashBoard extends React.Component {
   state = {
-    collapsed: false,
+    // collapsed: false,
   }
+
   toggleCollapsed = () => {
-    this.setState(pre => ({ collapsed: !pre.collapsed }));
+    const { dispatch, collapsed } = this.props;
+    dispatch(common.createMenuCollapsed(!collapsed));
   };
+
   render() {
-    const { collapsed } = this.state;
+    const { children, collapsed } = this.props;
     return (
       <Layout className={styles.container}>
-        <Sider {...this.props} collapsed={collapsed}></Sider>
+        <Sider {...this.props} collapsed={collapsed} />
         <Layout className={styles['dashboard-main']}>
           <Header handleClick={this.toggleCollapsed} collapsed={collapsed} />
           <Content className={styles.content}>
-            {this.props.children}
+            {children}
           </Content>
-          <Footer></Footer>
+          <Footer />
         </Layout>
       </Layout>
     );
   }
 }
+
+DashBoard.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  collapsed: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = ({ dashboardData }) => {
+  const {
+    collapsed = false,
+  } = dashboardData;
+  return {
+    collapsed,
+  };
+};
+
+export default connect(mapStateToProps)(DashBoard);
