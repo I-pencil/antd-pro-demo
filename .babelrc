@@ -27,5 +27,19 @@
         "style": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "mock": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "target": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }
