@@ -31,7 +31,7 @@ const responseSuccessFunc = (response) => {
     default:
       message.info(data.msg);
   }
-  return Promise.reject(data)
+  throw data;
 };
 
 const responseFailFunc = (response) => {
@@ -57,7 +57,7 @@ const responseFailFunc = (response) => {
     error.code = 'unconnected';
     error.msg = '无网络';
   }
-  return Promise.reject(error)
+  throw error;
 }
 
 // ax.interceptors.request.use(requestSuccessFunc);
