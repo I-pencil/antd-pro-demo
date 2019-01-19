@@ -27,7 +27,7 @@ class DashBoard extends React.Component {
         <Layout className={styles['dashboard-main']}>
           <Header handleClick={this.toggleCollapsed} collapsed={collapsed} />
           <Content className={styles.content}>
-            {children}
+            { children }
           </Content>
           <Footer />
         </Layout>
@@ -39,6 +39,7 @@ class DashBoard extends React.Component {
 DashBoard.propTypes = {
   dispatch: PropTypes.func.isRequired,
   collapsed: PropTypes.bool.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ dashboardData }) => {
