@@ -4,7 +4,8 @@
   "description": "基于React和Redux的后台管理平台",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config build/webpack.dev.config.js",
+    "dev": "webpack-dev-server --open --config build/webpack.dev.config.js",
+    "start": "npm run dev",
     "build": "webpack --config build/webpack.prod.config.js",
     "mock": "cross-env NODE_ENV=mock nodemon --watch mock ./mock/index.js"
   },
