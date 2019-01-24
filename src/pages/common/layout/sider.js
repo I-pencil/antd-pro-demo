@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
@@ -12,7 +12,7 @@ const { Sider } = Layout;
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
-export default class SiderContainer extends React.Component {
+export default class SiderContainer extends Component {
   state = {
     openKeys: [],
     selectedKeys: [],

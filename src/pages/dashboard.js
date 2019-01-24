@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import * as common from '@/store/actions/common';
 
 const { Content, Footer } = Layout;
 
-class DashBoard extends React.Component {
+class DashBoard extends Component {
   state = {
     // collapsed: false,
   }

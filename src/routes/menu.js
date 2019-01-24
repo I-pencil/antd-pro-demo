@@ -1,6 +1,6 @@
-import Analysis from '../pages/dashboard/analysis/analysis';
-import Monitor from '../pages/dashboard/monitor';
-import Workplace from '../pages/dashboard/workplace';
+import Analysis from '../pages/dashboard/analysis/Analysis';
+import Monitor from '../pages/dashboard/Monitor';
+import Workplace from '../pages/dashboard/Workplace';
 
 export default [
   {
