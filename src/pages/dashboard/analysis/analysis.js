@@ -1,24 +1,16 @@
-import React from 'react';
+import React, { Component, Suspense } from 'react';
 import { connect } from 'react-redux';
-import {
-  Row, Col,
-} from 'antd';
 
-class Analysis extends React.Component {
+const StatisticalRow = React.lazy(() => import('./StatisticalRow'));
+
+class Analysis extends Component {
   state = {};
 
   render() {
     return (
-      <div>
-        <Row gutter={16}>
-          <Col span={6}>
-            <h1>Col 1</h1>
-          </Col>
-          <Col span={6}><h1>Col 2</h1></Col>
-          <Col span={6}><h1>Col 3</h1></Col>
-          <Col span={6}><h1>Col 4</h1></Col>
-        </Row>
-      </div>
+      <Suspense fallback={<div>loading...</div>}>
+        <StatisticalRow />
+      </Suspense>
     );
   }
 }

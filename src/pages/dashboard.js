@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import * as common from '@/store/actions/common';
 
 const { Content, Footer } = Layout;
 
-class DashBoard extends React.Component {
+class DashBoard extends Component {
   state = {
     // collapsed: false,
   }
@@ -27,7 +27,7 @@ class DashBoard extends React.Component {
         <Layout className={styles['dashboard-main']}>
           <Header handleClick={this.toggleCollapsed} collapsed={collapsed} />
           <Content className={styles.content}>
-            {children}
+            { children }
           </Content>
           <Footer />
         </Layout>
@@ -39,6 +39,7 @@ class DashBoard extends React.Component {
 DashBoard.propTypes = {
   dispatch: PropTypes.func.isRequired,
   collapsed: PropTypes.bool.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ dashboardData }) => {

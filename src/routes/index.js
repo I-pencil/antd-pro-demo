@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from '../pages/dashboard';
 import menu from './menu';
-
+import Playground from '../pages/playground';
 
 const render = (props) => {
   const menuContent = menu.filter(item => item.rank !== 1);
@@ -20,6 +20,7 @@ const render = (props) => {
 
 const routes = (
   <Switch>
+    <Route path="/playground" component={Playground} />
     <Route path="/" render={render} />
   </Switch>
 );

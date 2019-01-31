@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import isEqual from 'lodash/isEqual';
@@ -11,7 +12,7 @@ const { Sider } = Layout;
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
-export default class SiderContainer extends React.Component {
+export default class SiderContainer extends Component {
   state = {
     openKeys: [],
     selectedKeys: [],
@@ -21,11 +22,17 @@ export default class SiderContainer extends React.Component {
     this.getCurrentItem(this.props.location);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!isEqual(nextProps.location, this.props.location)) {
-      this.getCurrentItem(nextProps.location);
+  getSnapshotBeforeUpdate(prevProps) {
+    if (!isEqual(prevProps.location, this.props.location)) {
+      return this.props.location;
     }
+    return false;
   }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot) this.getCurrentItem(snapshot);
+  }
+
 
   getCurrentItem = (location) => {
     const menuItems = menus.filter(item => item.rank === 2);
@@ -105,3 +112,8 @@ export default class SiderContainer extends React.Component {
     );
   }
 }
+
+SiderContainer.propTypes = {
+  location: PropTypes.object.isRequired,
+  collapsed: PropTypes.bool.isRequired,
+};
