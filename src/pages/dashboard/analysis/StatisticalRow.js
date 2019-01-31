@@ -29,7 +29,7 @@ class Statistical extends Component {
             <ChartCard
               title={<StatisticalCell label="总销售额" value="￥126,560" />}
               extra={<Tooltip title="指标说明"><Icon type="info-circle" /></Tooltip>}
-              actions={<div>122</div>}
+              actions={<Trend label="日销售额" value="￥ 12.423" />}
               contentheight={46}
               bordered={false}
             >

@@ -17,7 +17,7 @@ const Trend = (props) => {
 };
 
 Trend.defaultProps = {
-  flag: 'up',
+  flag: '',
   classnames: '',
 };
 

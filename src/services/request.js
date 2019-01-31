@@ -5,12 +5,12 @@ import '../utils/promise-request';
 const ax = axios.create();
 
 const request = (options) => {
-  const cloneOptions = Object.assign({}, options)
+  const cloneOptions = Object.assign({}, options);
   if (!cloneOptions.method || String.prototype.toLocaleLowerCase.call(cloneOptions.method) === 'get') {
     cloneOptions.params = options.params || options.data;
     delete cloneOptions.data;
   }
-  const result = ax(cloneOptions)
+  const result = ax(cloneOptions);
   return result;
 };
 
@@ -58,7 +58,7 @@ const responseFailFunc = (response) => {
     error.msg = '无网络';
   }
   throw error;
-}
+};
 
 // ax.interceptors.request.use(requestSuccessFunc);
 ax.interceptors.response.use(responseSuccessFunc, responseFailFunc);
@@ -66,5 +66,5 @@ ax.interceptors.response.use(responseSuccessFunc, responseFailFunc);
 export {
   get,
   post,
-}
+};
 export default ax;
