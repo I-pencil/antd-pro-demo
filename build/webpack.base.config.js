@@ -2,39 +2,43 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+const join = _path => path.join('static', _path);
+
 module.exports = {
   entry: {
     main: './src/index.js',
   },
   output: {
-    filename: '[name]-[hash:8].js',
-    chunkFilename: '[name]-[chunkhash:8].js',
+    filename: 'static/js/[name]-[hash:8].js',
+    chunkFilename: 'static/js/[name]-[chunkhash:8].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_nodules[\\/]/,
-          chunks: 'all',
-        },
-      },
-    },
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'url-loader',
-        ],
+        test: /\.(png|svg|jpe?g|gif)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: join('img/[name].[hash:8].[ext]'),
+        },
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: join('media/[name].[hash:8].[ext]'),
+        },
       },
       {
         test: /\.(woff|woff2|eot| ttf|otf)$/,
-        use: [
-          'url-loader',
-        ],
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: join('fonts/[name].[hash:8].[ext]'),
+        },
       },
       {
         include: path.resolve(__dirname, './node_modules'),
